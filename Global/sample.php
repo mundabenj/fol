@@ -1,7 +1,7 @@
 <?php
 
 // create a class
-class Sample {
+class sample {
     public function greet() {
         return "Hello class! <br>";
     }
