@@ -3,5 +3,5 @@ require 'ClassAutoLoad.php';
 $layout->header($conf);
 $layout->nav($conf);
 $layout->banner($conf);
-$layout->content($conf);
+$layout->form_frame($conf, $forms);
 $layout->footer($conf);
