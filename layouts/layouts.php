@@ -105,7 +105,7 @@ class layouts {
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-8">
-<?php if($_SERVER['PHP_SELF'] == '/fol/signup.php'){$forms->signup(); }else{$forms->signin();}?>
+<?php if($_SERVER['PHP_SELF'] == '/fol/signup.php'){$ObjForm->signup(); }else{$ObjForm->signin();}?>
           </div>
           <div class="col-md-4">
             <h2>Heading</h2>
