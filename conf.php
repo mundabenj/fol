@@ -21,6 +21,6 @@ $conf['DB_NAME'] = 'fol';
 $conf['mail_type'] = 'smtp'; // mail or smtp
 $conf['smtp_host'] = 'smtp.gmail.com'; // SMTP Host Address
 $conf['smtp_user'] = 'bbitalex@gmail.com'; // SMTP Username
-$conf['smtp_pass'] = 'hwjk yese oxog yoab'; // SMTP Password
+$conf['smtp_pass'] = ''; // SMTP Password
 $conf['smtp_port'] = 465; // SMTP Port - 587 for tls, 465 for ssl
 $conf['smtp_secure'] = 'ssl'; // Encryption - ssl or tls
