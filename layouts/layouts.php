@@ -11,7 +11,7 @@ class layouts {
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Astro v5.13.2">
       <title><?php echo $conf['site_name']; ?></title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+      <link href="<?php echo $conf['site_url']; ?>/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
       <meta name="theme-color" content="#712cf9">
    </head>
    <body>
@@ -23,7 +23,7 @@ class layouts {
       <main>
          <div class="container py-4">
             <header class="pb-3 mb-4 border-bottom">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
             <div class="container-fluid">
                <a class="navbar-brand" href="./"><?php echo $conf['site_name']; ?></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
                <div class="collapse navbar-collapse" id="navbarsExample05">
@@ -95,7 +95,7 @@ class layouts {
             </footer>
          </div>
       </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="<?php echo $conf['site_url']; ?>/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
    </body>
 </html>
 <?php
