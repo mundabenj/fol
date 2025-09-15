@@ -10,6 +10,11 @@ class auth{
             $password = $_SESSION['password'] = $_POST['password'];
             // Further processing like validation, hashing password, storing in database, etc.
 
+            // Validate fullname
+            if (empty($fullname) || !preg_match("/^[a-zA-Z ]*$/", $fullname)) {
+                $errors['fullname_error'] = "Only letters and white space allowed in fullname";
+            }
+
             // Verify email format
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $errors['mailFormat_error'] = "Invalid email format";
