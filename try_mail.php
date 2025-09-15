@@ -12,4 +12,3 @@ $mailCnt = [
 ];
 
 $ObjSendMail->Send_Mail($conf, $mailCnt);
-

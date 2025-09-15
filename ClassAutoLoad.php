@@ -1,7 +1,7 @@
 <?php
-require 'Plugins/PHPMailer/vendor/autoload.php';
 require 'conf.php';
-$directory = array("Global", "layouts", "Forms");
+
+$directory = array("Global", "Layouts", "Forms");
 
 spl_autoload_register(function ($class_name) use ($directory) {
     foreach ($directory as $dir) {
