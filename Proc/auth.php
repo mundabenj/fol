@@ -36,13 +36,15 @@ class auth{
             // If there are errors, store them in session and redirect back to signup page
             if (!count($errors)) {
                 // No errors, proceed with signup (e.g., store user in database)
-                die($fullname." ".$email." ".$password);
+                // die($fullname." ".$email." ".$password);
                 // Clear session variables after successful signup
                 unset($_SESSION['fullname']);
                 unset($_SESSION['email']);
                 unset($_SESSION['password']);
+                $ObjFncs->setMsg('msg', 'Signup successful! You can now log in.', 'success');
             } else {
                 $ObjFncs->setMsg('errors', $errors, 'alert alert-danger');
+                $ObjFncs->setMsg('msg', 'Please fix the errors below and try again.', 'danger');
             }
         }
     }

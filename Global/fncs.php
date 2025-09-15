@@ -6,7 +6,7 @@ class fncs{
         if(is_array($value)){
             $_SESSION[$name] = $value;
         } else {
-            $_SESSION[$name] = [$value, $class];
+            $_SESSION[$name] = "<div class='alert alert-$class'>".$value."</div>";
         }
     }
 
