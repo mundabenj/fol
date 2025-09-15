@@ -41,7 +41,7 @@ class auth{
                 unset($_SESSION['fullname']);
                 unset($_SESSION['email']);
                 unset($_SESSION['password']);
-                $ObjFncs->setMsg('msg', 'Signup successful! You can now log in.', 'success');
+                $ObjFncs->setMsg('msg', 'Sign up successful! You can now Sign in.', 'success');
             } else {
                 $ObjFncs->setMsg('errors', $errors, 'alert alert-danger');
                 $ObjFncs->setMsg('msg', 'Please fix the errors below and try again.', 'danger');

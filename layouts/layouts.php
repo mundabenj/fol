@@ -19,7 +19,6 @@ class layouts {
     }
     public function navbar($conf) {
     ?>
-
       <main>
          <div class="container py-4">
             <header class="pb-3 mb-4 border-bottom">
@@ -28,9 +27,9 @@ class layouts {
                <a class="navbar-brand" href="./"><?php echo $conf['site_name']; ?></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
                <div class="collapse navbar-collapse" id="navbarsExample05">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     <li class="nav-item"> <a class="nav-link active" aria-current="page" href="./">Home</a> </li>
-                     <li class="nav-item"> <a class="nav-link" href="signup.php">Sign Up</a> </li>
-                     <li class="nav-item"> <a class="nav-link" href="signin.php">Sign In</a> </li>
+                     <li class="nav-item"> <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" href="./">Home</a> </li>
+                     <li class="nav-item"> <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'signup.php') ? 'active' : ''; ?>" href="signup.php">Sign Up</a> </li>
+                     <li class="nav-item"> <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'signin.php') ? 'active' : ''; ?>" href="signin.php">Sign In</a> </li>
                   </ul>
                   <form role="search"> <input class="form-control" type="search" placeholder="Search" aria-label="Search"> </form>
                </div>
