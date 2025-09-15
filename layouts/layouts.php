@@ -2,147 +2,107 @@
 class layouts {
     public function header($conf) {
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
-
-    <title>Jumbotron Template for Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/">
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-  </head>
-
-  <body>
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <meta name="generator" content="Astro v5.13.2">
+      <title>Jumbotron example · Bootstrap v5.3</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+      <meta name="theme-color" content="#712cf9">
+   </head>
+   <body>
 <?php
     }
     public function nav($conf) {
     ?>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="signup.php">Sign Up</a></li>
-          <li class="nav-item"><a class="nav-link" href="signin.php">Sign In</a></li>
-          <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div> -->
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+      <main>
+         <div class="container py-4">
+            <header class="pb-3 mb-4 border-bottom">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
+            <div class="container-fluid">
+               <a class="navbar-brand" href="#">Expand at lg</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
+               <div class="collapse navbar-collapse" id="navbarsExample05">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                     <li class="nav-item"> <a class="nav-link active" aria-current="page" href="./">Home</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="signup.php">Sign Up</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="signin.php">Sign In</a> </li>
+                  </ul>
+                  <form role="search"> <input class="form-control" type="search" placeholder="Search" aria-label="Search"> </form>
+               </div>
+            </div>
+         </nav>
+            </header>
     <?php
     }
     public function banner($conf) {
     ?>
-    <main role="main">
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Hello, world!</h1>
-          <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-        </div>
-      </div>
+            <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+               <div class="container-fluid py-5">
+                  <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+                  <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+                  <button class="btn btn-primary btn-lg" type="button">Example button</button> 
+               </div>
+            </div>
     <?php
     }
     public function content($conf) {
     ?>
-      <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
-
-        <hr>
-
-      </div> <!-- /container -->
+            <div class="row align-items-md-stretch">
+               <div class="col-md-6">
+                  <div class="h-100 p-5 text-bg-dark rounded-3">
+                     <h2>Change the background</h2>
+                     <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
+                     <button class="btn btn-outline-light" type="button">Example button</button> 
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                     <h2>Add borders</h2>
+                     <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+                     <button class="btn btn-outline-secondary" type="button">Example button</button> 
+                  </div>
+               </div>
+            </div>
     <?php
     }
-    public function form_frame($conf, $forms) {
+    public function form_frame($conf, $ObjForm) {
     ?>
-      <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-8">
+
+            <div class="row align-items-md-stretch">
+               <div class="col-md-6">
+                  <div class="h-100 p-5 text-bg-dark rounded-3">
 <?php if($_SERVER['PHP_SELF'] == '/fol/signup.php'){$ObjForm->signup(); }else{$ObjForm->signin();}?>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                     <h2>Add borders</h2>
+                     <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+                     <button class="btn btn-outline-secondary" type="button">Example button</button> 
+                  </div>
+               </div>
+            </div>
 
-        <hr>
 
-      </div> <!-- /container -->
+
     <?php
     }
     public function footer($conf) {
 ?>
-    </main>
 
-    <footer class="container">
-      <p>Copyright &copy; - <?php print $conf['site_name'] . " " . date("Y"); ?></p>
-    </footer>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <!-- <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script> -->
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
-
-  </body>
+            <footer class="pt-3 mt-4 text-body-secondary border-top">
+               Copyright &copy; - <?php print $conf['site_name'] . " " . date("Y"); ?>
+            </footer>
+         </div>
+      </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+   </body>
 </html>
-
 <?php
     }
 }
