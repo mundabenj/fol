@@ -1,4 +1,10 @@
 <?php
+
+// start session
+if (session_status() == PHP_SESSION_NONE) { 
+    session_start(); 
+}
+
 // Site timezone
 $conf['site_timezone'] = 'AFRICA/NAIROBI';
 
@@ -24,3 +30,10 @@ $conf['smtp_user'] = 'example@gmail.com'; // SMTP Username
 $conf['smtp_pass'] = 'secret'; // SMTP Password
 $conf['smtp_port'] = 465; // SMTP Port - 587 for tls, 465 for ssl
 $conf['smtp_secure'] = 'ssl'; // Encryption - ssl or tls
+
+
+// Valid domain
+$conf['valid_domain'] = ['gmail.com', 'icsacademy.com', 'yahoo.com', 'outlook.com', 'strathmore.edu'];
+
+// Valid password length
+$conf['valid_password_length'] = 8;
