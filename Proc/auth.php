@@ -1,6 +1,15 @@
 <?php
 class auth{
-    public function signup($conf, $ObjFncs){
+    // method to bind email template variables
+    private function bindTemplateVars($template, $variables) {
+        foreach ($variables as $key => $value) {
+            $template = str_replace('{{' . $key . '}}', $value, $template);
+        }
+        return $template;
+    }
+
+    // Signup function
+    public function signup($conf, $ObjFncs, $lang, $ObjSendMail){
         // Signup logic here
         if(isset($_POST['signup'])){
             $errors = array(); // Initialize an array to hold error messages
@@ -35,13 +44,31 @@ class auth{
 
             // If there are errors, store them in session and redirect back to signup page
             if (!count($errors)) {
+
+                $mail_variables = [
+                    'site_name' => $conf['site_name'],
+                    'fullname' => $fullname,
+                    'activation_code' => $conf['activation_code']
+                ];
+
+                // Send verification email
+                $ObjSendMail->Send_Mail($conf, [
+                    'name_from' => $conf['site_name'],
+                    'mail_from' => $conf['site_email'],
+                    'name_to' => $fullname,
+                    'mail_to' => $email,
+                    'subject' => $this->bindTemplateVars($lang['ver_reg_subj'], $mail_variables),
+                    'body' => nl2br($this->bindTemplateVars($lang['ver_reg_body'], $mail_variables))
+                ]);
+
                 // No errors, proceed with signup (e.g., store user in database)
                 // die($fullname." ".$email." ".$password);
                 // Clear session variables after successful signup
+                $ObjFncs->setMsg('msg', 'Sign up successful! Please check your email for verification instructions.', 'success');
+
                 unset($_SESSION['fullname']);
                 unset($_SESSION['email']);
                 unset($_SESSION['password']);
-                $ObjFncs->setMsg('msg', 'Sign up successful! You can now Sign in.', 'success');
             } else {
                 $ObjFncs->setMsg('errors', $errors, 'alert alert-danger');
                 $ObjFncs->setMsg('msg', 'Please fix the errors below and try again.', 'danger');
