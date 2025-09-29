@@ -12,10 +12,10 @@
  * $db = new dbConnection('MySQLi', 'localhost', 'dbname', 'user', 'pass', 3306);
  * or
  * $db = new dbConnection('PDO', 'localhost', 'dbname', 'user', 'pass', 3306);
- ******************************************************************************************/
+******************************************************************************************/
 class dbConnection{
     //constructor creation
-
+    
     private $connection;
     private $db_type;
     private $db_host;
@@ -24,23 +24,24 @@ class dbConnection{
     private $db_pass;
     private $db_port;
     private $posted_values;
-
-    public function __construct($DB_TYPE,$DB_HOST,$DB_NAME,$DB_USER,$DB_PASS,$DB_PORT) {
+    
+    // * $db = new dbConnection('PDO', 'localhost', 'dbname', 'user', 'pass', 3306);
+    public function __construct($DB_TYPE, $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS, $DB_PORT) {
         $this->db_type      = $DB_TYPE;
         $this->db_host      = $DB_HOST;
         $this->db_name      = $DB_NAME;
         $this->db_user      = $DB_USER;
         $this->db_pass      = $DB_PASS;
         $this->db_port      = $DB_PORT;
-        $this->connection($DB_TYPE,$DB_HOST,$DB_NAME,$DB_USER,$DB_PASS,$DB_PORT);
+        $this->connection($DB_TYPE, $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS, $DB_PORT);
     }
-    public function connection($DB_TYPE,$DB_HOST,$DB_NAME,$DB_USER,$DB_PASS,$DB_PORT){
+    public function connection($DB_TYPE, $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS, $DB_PORT){
         switch ($DB_TYPE) {
             case 'MySQLi':
                 if($DB_PORT<>Null){
                     $DB_HOST.=":".$DB_PORT;
                 }
-                $this->connection = new mysqli($DB_HOST,$DB_USER,$DB_PASS,$DB_NAME,$DB_PORT);
+                $this->connection = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME, $DB_PORT);
                 if ($this->connection->connect_error) { return "Connection failed: " . $this->connection->connect_error; }else{
                     // print "Connected successfully with ".$DB_TYPE;
                 }
