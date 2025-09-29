@@ -1,22 +1,38 @@
 <?php
-require 'conf.php';
 
-$directory = array("Global", "Layouts", "Forms", "Proc");
+// Check if configuration file exists
+if (!file_exists(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'conf.php')) {
+    die('Configuration file not found. Please create conf.php from conf.sample.php and configure it.');
+}
 
-spl_autoload_register(function ($class_name) use ($directory) {
-    foreach ($directory as $dir) {
-        if (file_exists($dir . '/' . $class_name . '.php')) {
-            require $dir . '/' . $class_name . '.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'conf.php'; // Include configuration file
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . "Includes/dbConnection.php";
+// Directories to search for class files
+$directories = ["Forms", "Layouts", "Globals", "Proc", "Fncs"];
+
+// Autoload classes from specified directories
+spl_autoload_register(function ($className) use ($directories) {
+    foreach ($directories as $directory) {
+        $filePath = __DIR__ . "/$directory/" . $className . '.php';
+        if (file_exists($filePath)) {
+            require_once $filePath;
+            return;
         }
     }
 });
 
-// Now you can create instances of classes without manually including their files
+/* Create the DB Connection */
+$SQL = New dbConnection($conf['db_type'], $conf['db_host'], $conf['db_name'], $conf['db_user'], $conf['db_pass'], $conf['db_port']);
+// print'<pre>'; print_r($SQL); print'</pre>';
+
+
+// Instantiate objects
 $ObjSendMail = new SendMail();
-$ObjLayout = new layouts();
 $ObjForm = new forms();
-$ObjAuth = new auth();
+$ObjLayout = new layouts();
+
+$ObjAuth = new Auth($conf);
 $ObjFncs = new fncs();
 
 
-$ObjAuth->signup($conf, $ObjFncs, $lang, $ObjSendMail);
+$ObjAuth->signup($conf, $ObjFncs, $lang, $ObjSendMail, $SQL);
