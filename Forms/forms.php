@@ -37,6 +37,7 @@ class forms {
     }
 
     public function verify_code($conf, $ObjFncs) {
+      $err = $ObjFncs->getMsg('errors'); print $ObjFncs->getMsg('msg');
         ?>
     <h1>Code Verification</h1>
     <form action="" method="post" autocomplete="off">
@@ -50,6 +51,7 @@ class forms {
     }
 
     public function forgot_password($conf, $ObjFncs) {
+      $err = $ObjFncs->getMsg('errors'); print $ObjFncs->getMsg('msg');
         ?>
     <h1>Forgot Password</h1>
     <form action="" method="post" autocomplete="off">
@@ -62,7 +64,8 @@ class forms {
     <?php
     }
 
-    public function signin() {
+    public function signin($conf, $ObjFncs) {
+      $err = $ObjFncs->getMsg('errors'); print $ObjFncs->getMsg('msg');
         ?>
     <h1>Sign In</h1>
     <form>

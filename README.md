@@ -7,5 +7,5 @@ Please create conf.php from conf.sample.php and configure it.
 Run the migrations
 - Terminal
     -- cd database
-    -- php migrations.php
-    -- php seeders.php
+    -- php migrations.php // the structure of the DB
+    -- php seeders.php // the initial data

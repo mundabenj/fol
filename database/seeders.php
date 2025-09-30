@@ -2,17 +2,12 @@
 // define database constants
 require_once '../ClassAutoLoad.php';
 
-// Truncate existing data in tables before seeding
-$SQL->truncate("`users`");
-$SQL->truncate("`roles`");
-$SQL->truncate("`genders`");
-
 // Seed roles data
 $insert_roles = $SQL->insert('roles', array('roleName' => 'Admin'));
 $insert_roles = $SQL->insert('roles', array('roleName' => 'User'));
 $insert_roles = $SQL->insert('roles', array('roleName' => 'Guest'));
 if ($insert_roles === TRUE) {
-    echo "Roles seeded successfully.";
+    echo "Roles seeded successfully. | ";
 } else {
     echo "Error seeding roles: " . $insert_roles;
 }
@@ -24,7 +19,7 @@ $insert_genders = $SQL->insert('genders', array('genderName' => 'Other'));
 
 // Check if genders were seeded successfully
 if ($insert_genders === TRUE) {
-    echo "Genders seeded successfully.";
+    echo "Genders seeded successfully. | ";
 } else {
     echo "Error seeding genders: " . $insert_genders;
 }

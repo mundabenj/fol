@@ -1,69 +1,74 @@
-<?php
-// define database constants
-require_once '../ClassAutoLoad.php';
+ <?php
+require_once '../ClassAutoLoad.php'; // Include the autoloader
 
-// Drop users table if it exists
+// Drop users table if exists
 $drop_users = $SQL->dropTable('users');
 
-// sql to create users table if it doesn't exist
+// Method to create users table
 $create_users = $SQL->createTable('users', [
-    'userId' => 'bigint(10) NOT NULL AUTO_INCREMENT PRIMARY KEY',
-    'fullname' => 'varchar(50) DEFAULT NULL',
-    'email' => 'varchar(50) DEFAULT NULL UNIQUE',
-    'password' => 'varchar(60) DEFAULT NULL',
-    'verify_code' => 'varchar(10) DEFAULT NULL',
-    'code_expiry_time' => 'datetime NOT NULL DEFAULT current_timestamp()',
-    'mustchange' => 'tinyint(1) NOT NULL DEFAULT 0',
-    'status' => 'enum(\'Active\',\'Pending\',\'Suspended\',\'Deleted\') NOT NULL DEFAULT \'Pending\'',
-    'updated' => 'datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()',
-    'created' => 'datetime NOT NULL DEFAULT current_timestamp()',
-    'genderId' => 'tinyint(1) NOT NULL DEFAULT 1',
-    'roleId' => 'tinyint(1) NOT NULL DEFAULT 1'
+    'userId' => 'bigint(10) AUTO_INCREMENT PRIMARY KEY',
+    'fullname' => 'VARCHAR(50) default NULL',
+    'email' => 'VARCHAR(50) default NULL unique',
+    'password' => 'VARCHAR(60) NOT NULL',
+    'verify_code' => 'VARCHAR(10) NOT NULL',
+    'code_expiry_time' => 'DATETIME NULL',
+    'mustchange' => 'tinyint(1) not null default 0',
+    'status' => "ENUM('Active', 'Inactive', 'Suspended', 'Pending', 'Deleted') DEFAULT 'Pending'",
+    'created' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
+    'updated' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+    'roleId' => 'tinyint(1) not null default 1',
+    'genderId' => 'tinyint(1) not null default 1'
 ]);
 
 if ($create_users === TRUE) {
-    echo "Table 'users' created successfully.";
+  echo "Table users created successfully | ";
 } else {
-    echo "Error creating table: " . $create_users;
+  echo "Error creating table: " . $create_users;
 }
 
-// DROP roles table if it exists
+// Drop roles table if exists
 $drop_roles = $SQL->dropTable('roles');
 
-// sql to create roles table if it doesn't exist
+// Method to create roles table
 $create_roles = $SQL->createTable('roles', [
-    'roleId' => 'tinyint(1) NOT NULL AUTO_INCREMENT PRIMARY KEY',
-    'roleName' => 'varchar(50) NOT NULL UNIQUE',
-    'created' => 'datetime NOT NULL DEFAULT current_timestamp()',
-    'updated' => 'datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()'
+    'roleId' => 'tinyint(1) AUTO_INCREMENT PRIMARY KEY',
+    'roleName' => 'VARCHAR(50) NOT NULL unique',
+    'created' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
+    'updated' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
 ]);
 
 if ($create_roles === TRUE) {
-    echo "Table 'roles' created successfully.";
+  echo "Table roles created successfully | ";
 } else {
-    echo "Error creating table: " . $create_roles;
+  echo "Error creating table: " . $create_roles;
 }
 
-// Drop genders table if it exists
+// Drop genders table if exists
 $drop_genders = $SQL->dropTable('genders');
 
-// Create genders table if it doesn't exist
+// Method to create genders table
 $create_genders = $SQL->createTable('genders', [
-    'genderId' => 'tinyint(1) NOT NULL AUTO_INCREMENT PRIMARY KEY',
-    'genderName' => 'varchar(50) NOT NULL UNIQUE',
-    'created' => 'datetime NOT NULL DEFAULT current_timestamp()',
-    'updated' => 'datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()'
+    'genderId' => 'tinyint(1) AUTO_INCREMENT PRIMARY KEY',
+    'genderName' => 'VARCHAR(50) NOT NULL unique',
+    'created' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
+    'updated' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
 ]);
 
 if ($create_genders === TRUE) {
-    echo "Table 'genders' created successfully.";
+  echo "Table genders created successfully | ";
 } else {
-    echo "Error creating table: " . $create_genders;
+  echo "Error creating table: " . $create_genders;
 }
 
-// Alter users table to add foreign key constraints
-$alter_users = $SQL->addForeignKey('users', 'genderId', 'genders', 'genderId');
-$alter_users = $SQL->addForeignKey('users', 'roleId', 'roles', 'roleId');
+// Alter users table to add constraints
+$alter_users_table = $SQL->addConstraint('users', 'roles', 'roleId', 'CASCADE', 'CASCADE');
+$alter_users_table = $SQL->addConstraint('users', 'genders', 'genderId', 'CASCADE', 'CASCADE');
+if ($alter_users_table === TRUE) {
+  echo "Foreign key constraints added to users table successfully | ";
+} else {
+  echo "Error adding foreign key constraints: " . $alter_users_table;
+}
 
 // Close the database connection
 $SQL->closeConnection();
+echo "Database migration completed.";

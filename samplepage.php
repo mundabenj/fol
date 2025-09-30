@@ -1,20 +1,8 @@
-<?php
+ <?php
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'ClassAutoLoad.php'; // Include the autoloader
 
-// define database constants
-require_once 'ClassAutoLoad.php';
+// Set user data to insert
+$user_data = ['fullname' => 'Alice Okama', 'email' => 'alice.okama@yahoo.com'];
 
-$fullname = "Alice Okama";
-$email = "alice.okama@yahoo.com";
-
-// prepare user data
-$user_data = array('fullname' => $fullname, 'email' => $email);
-
-// insert user data
-$insert_user = $SQL->insert('users', $user_data);
-
-// check if insertion was successful
-if ($insert_user === TRUE) {
-    echo "User inserted successfully.";
-} else {
-    echo "Error inserting user: " . $insert_user;
-}
+// call the insert method
+$insert_result = $SQL->insert('users', $user_data);
